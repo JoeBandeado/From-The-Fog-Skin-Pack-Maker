@@ -2,10 +2,10 @@ const fs = require("fs");
 const path = require("path");
 
 // Reset Folders
-const sourceInput = "./source/input/";
-const sourceOutput = "./source/output/";
+const sourceInput = "./.source/source/input/";
+const sourceOutput = "./.source/source/output/";
 const targetInput = "./input/";
-const targetOutput = "./output/";
+const targetOutput = "./.source/output/";
 
 const deleteDirectory = dirPath => {
   if (!fs.existsSync(dirPath)) return;

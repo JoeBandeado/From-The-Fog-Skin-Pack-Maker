@@ -16,7 +16,7 @@ const customSkinTypes = [
 // Skins
 const skins = [1, 2, 3, 4, 5];
 const skinSourcePath = "./input/skins/";
-const targetPath = "./output/assets/watching/textures/item/herobrine/custom/";
+const targetPath = "./.source/output/assets/watching/textures/item/herobrine/custom/";
 
 try {
   if (!fs.existsSync(targetPath)) {
@@ -40,7 +40,7 @@ skins.forEach(skin => {
 
 // Skin Details
 const detailsPath = "./input/details.json";
-const targetLangPath = "./output/assets/minecraft/lang/";
+const targetLangPath = "./.source/output/assets/minecraft/lang/";
 const langs = ["en_us", "en_au", "en_ca", "en_gb", "en_nz"];
 
 try {
@@ -60,7 +60,7 @@ langs.forEach(lang => {
 });
 
 // Create Icons
-const iconOutputPath = './output/assets/watching/textures/font/watching_ui/icons/skins/custom/';
+const iconOutputPath = './.source/output/assets/watching/textures/font/watching_ui/icons/skins/custom/';
 
 try {
     if (!fs.existsSync(iconOutputPath)) {
@@ -106,8 +106,8 @@ const numbers = [1, 2, 3, 4, 5];
 // Check for wide or slim
 customSkinTypes.forEach((customSkinType, index) => {
   const skinType = customSkinType === "wide" ? "wide" : "slim";
-  const sourceFolder = path.resolve(`./source/skin_types/${skinType}/${index + 1}`);
-  const destinationFolder = path.resolve(`./output/assets/watching/models/item/herobrine/custom/${index + 1}`);
+  const sourceFolder = path.resolve(`./.source/source/skin_types/${skinType}/${index + 1}`);
+  const destinationFolder = path.resolve(`./.source/output/assets/watching/models/item/herobrine/custom/${index + 1}`);
 
   fse.copy(sourceFolder, destinationFolder)
     .then(() => console.log(`${sourceFolder} was copied to ${destinationFolder}`))
@@ -115,7 +115,7 @@ customSkinTypes.forEach((customSkinType, index) => {
 });
 
 // Change the pack.mcmeta based on the pack's name.
-fs.readFile('./output/pack.mcmeta', 'utf8', (err, data) => {
+fs.readFile('./.source/output/pack.mcmeta', 'utf8', (err, data) => {
   if (err) throw err;
 
   // Parse the JSON data
@@ -125,7 +125,7 @@ fs.readFile('./output/pack.mcmeta', 'utf8', (err, data) => {
   packMeta.pack.description = `${packName} | From The Fog Skin Pack!`;
 
   // Write the updated pack.mcmeta file
-  fs.writeFile('./output/pack.mcmeta', JSON.stringify(packMeta, null, 2), (err) => {
+  fs.writeFile('./.source/output/pack.mcmeta', JSON.stringify(packMeta, null, 2), (err) => {
     if (err) throw err;
     console.log('pack.mcmeta file updated successfully');
   });
@@ -134,6 +134,6 @@ fs.readFile('./output/pack.mcmeta', 'utf8', (err, data) => {
 // Zip Finished product
 setTimeout(() => {
 const zip = new AdmZip();
-zip.addLocalFolder('./output');
+zip.addLocalFolder('./.source/output');
 zip.writeZip(`./${packName}-Output.zip`);
 }, 1000);
