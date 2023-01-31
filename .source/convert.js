@@ -122,7 +122,7 @@ fs.readFile('./.source/output/pack.mcmeta', 'utf8', (err, data) => {
   let packMeta = JSON.parse(data);
 
   // Change the description
-  packMeta.pack.description = `${packName} | From The Fog Skin Pack!`;
+  packMeta.pack.description = `§5${packName} §8| §fFrom The Fog Skin Pack!`;
 
   // Write the updated pack.mcmeta file
   fs.writeFile('./.source/output/pack.mcmeta', JSON.stringify(packMeta, null, 2), (err) => {
