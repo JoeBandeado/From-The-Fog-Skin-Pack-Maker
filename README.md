@@ -4,7 +4,7 @@
 
 1. Before we begin you're gonna need node.js which can be downloaded [**HERE**](https://nodejs.org/en/).
 
-2. Run "setup.bat".
+2. Run "setup.bat". (**WARNING** THIS WILL RESET ANYTHING IN THE INPUT FOLDER. DO THE STEPS IN ORDER!)
 
 3. Go to "input/skins" and change the skins to whatever you want. (You **CANNOT** make custom models with this skin pack generator. If you want to change the models of your skins you will need to download [**THIS**](https://lunareclipse.studio/dl/From-The-Fog-Custom-Skin-Template.zip) and follow the instructions.)
 
