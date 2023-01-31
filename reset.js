@@ -1,0 +1,45 @@
+const fs = require("fs");
+const path = require("path");
+
+// Reset Folders
+const sourceInput = "./source/input/";
+const sourceOutput = "./source/output/";
+const targetInput = "./input/";
+const targetOutput = "./output/";
+
+const deleteDirectory = dirPath => {
+  if (!fs.existsSync(dirPath)) return;
+  fs.readdirSync(dirPath).forEach(file => {
+    const curPath = path.join(dirPath, file);
+    if (fs.lstatSync(curPath).isDirectory()) {
+      deleteDirectory(curPath);
+    } else {
+      fs.unlinkSync(curPath);
+    }
+  });
+  fs.rmdirSync(dirPath);
+};
+
+const copyDirectory = (src, dst) => {
+  fs.readdirSync(src).forEach(file => {
+    const curSrc = path.join(src, file);
+    const curDst = path.join(dst, file);
+    if (fs.lstatSync(curSrc).isDirectory()) {
+      fs.mkdirSync(curDst, { recursive: true });
+      copyDirectory(curSrc, curDst);
+    } else {
+      fs.copyFileSync(curSrc, curDst);
+    }
+  });
+};
+
+try {
+  deleteDirectory(targetInput);
+  deleteDirectory(targetOutput);
+  fs.mkdirSync(targetInput, { recursive: true });
+  fs.mkdirSync(targetOutput, { recursive: true });
+  copyDirectory(sourceInput, targetInput);
+  copyDirectory(sourceOutput, targetOutput);
+} catch (err) {
+  console.error(`Error copying and deleting directories: ${err.message}`);
+}

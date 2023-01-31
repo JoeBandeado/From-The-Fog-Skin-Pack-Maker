@@ -1,0 +1,14 @@
+{
+    "watchingSkin.customSkinPack.name": "Custom Skins",
+    "watchingSkin.customSkin1.name": "Custom Skin 1",
+    "watchingSkin.customSkin2.name": "Custom Skin 2",
+    "watchingSkin.customSkin3.name": "Custom Skin 3",
+    "watchingSkin.customSkin4.name": "Custom Skin 4",
+    "watchingSkin.customSkin5.name": "Custom Skin 5",
+
+    "watchingSkin.customSkin1.type": "wide",
+    "watchingSkin.customSkin2.type": "slim",
+    "watchingSkin.customSkin3.type": "wide",
+    "watchingSkin.customSkin4.type": "slim",
+    "watchingSkin.customSkin5.type": "wide"
+}

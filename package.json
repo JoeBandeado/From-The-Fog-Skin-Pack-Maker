@@ -1,0 +1,20 @@
+{
+  "name": "from-the-fog-skin-pack-maker",
+  "version": "1.0.0",
+  "description": "From The Fog skin pack creator!",
+  "main": "convert.js",
+  "scripts": {
+    "convert": "npm i && node convert.js",
+    "reset": "npm i && node reset.js"
+  },
+  "author": "Bret06 & Creeperz653",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "canvas": "^2.11.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.1.0",
+    "path": "^0.12.7",
+    "sharp": "^0.31.3"
+  }
+}
