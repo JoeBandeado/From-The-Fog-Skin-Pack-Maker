@@ -131,6 +131,47 @@ fs.readFile('./.source/output/pack.mcmeta', 'utf8', (err, data) => {
   });
 });
 
+// Create pack.png
+const packIconOutputPath = './.source/output/';
+
+try {
+if (!fs.existsSync(packIconOutputPath)) {
+fs.mkdirSync(packIconOutputPath, { recursive: true });
+}
+} catch (err) {
+console.error(`Error creating directory: ${err.message}`);
+}
+
+(async () => {
+try {
+const canvas = createCanvas(8, 8);
+const ctx = canvas.getContext('2d');
+
+const image = new Image();
+image.src = fs.readFileSync(`${skinSourcePath}1.png`);
+ctx.drawImage(image, -8, -8, 64, 64);
+
+// Draw the second overlay layer on top of the first layer
+ctx.drawImage(image, 40, 8, 8, 8, 0, 0, 8, 8);
+
+const emissiveImage = new Image();
+emissiveImage.src = fs.readFileSync(`${skinSourcePath}1_emissive.png`);
+ctx.drawImage(emissiveImage, -8, -8, 64, 64);
+
+// Draw the second overlay layer on top of the first layer
+ctx.drawImage(emissiveImage, 40, 8, 8, 8, 0, 0, 8, 8);
+
+
+const out = fs.createWriteStream(`${packIconOutputPath}pack.png`);
+const stream = canvas.createPNGStream();
+stream.pipe(out);
+out.on('finish', () => console.log(`pack.png was created`));
+
+} catch (error) {
+  console.error(`An error occurred while processing 1.png:`, error);
+  }
+  })();
+
 // Zip Finished product
 setTimeout(() => {
 const zip = new AdmZip();
