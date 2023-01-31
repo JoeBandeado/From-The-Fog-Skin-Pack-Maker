@@ -1,3 +1,5 @@
 node_modules/
 *.dat
 console.log
+*.zip
+output/
