@@ -107,9 +107,9 @@ customSkinTypes.forEach((customSkinType, index) => {
     .catch(err => console.error(err));
 });
 
-
+// Zip Finished product
 setTimeout(() => {
 const zip = new AdmZip();
 zip.addLocalFolder('./output');
-zip.writeZip(`./output/${packName}-From-The-Fog-Skin-Creator.zip`);
+zip.writeZip(`./${packName}-From-The-Fog-Skin-Creator.zip`);
 }, 1000);
