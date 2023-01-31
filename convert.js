@@ -82,12 +82,16 @@ const numbers = [1, 2, 3, 4, 5];
     image.src = fs.readFileSync(`${skinSourcePath}${number}.png`);
     ctx.drawImage(image, -8, -8, 64, 64);
 
+    // Draw the second overlay layer on top of the first layer
+    ctx.drawImage(image, 40, 8, 8, 8, 0, 0, 8, 8);
+
     const emissiveImage = new Image();
     emissiveImage.src = fs.readFileSync(`${skinSourcePath}${number}_emissive.png`);
     ctx.drawImage(emissiveImage, -8, -8, 64, 64);
 
     // Draw the second overlay layer on top of the first layer
-    ctx.drawImage(image, 40, 8, 8, 8, 0, 0, 8, 8);
+    ctx.drawImage(emissiveImage, 40, 8, 8, 8, 0, 0, 8, 8);
+
 
     const out = fs.createWriteStream(`${iconOutputPath}${number}.png`);
     const stream = canvas.createPNGStream();
@@ -108,6 +112,23 @@ customSkinTypes.forEach((customSkinType, index) => {
   fse.copy(sourceFolder, destinationFolder)
     .then(() => console.log(`${sourceFolder} was copied to ${destinationFolder}`))
     .catch(err => console.error(err));
+});
+
+// Change the pack.mcmeta based on the pack's name.
+fs.readFile('./output/pack.mcmeta', 'utf8', (err, data) => {
+  if (err) throw err;
+
+  // Parse the JSON data
+  let packMeta = JSON.parse(data);
+
+  // Change the description
+  packMeta.pack.description = `${packName} | From The Fog Skin Pack!`;
+
+  // Write the updated pack.mcmeta file
+  fs.writeFile('./output/pack.mcmeta', JSON.stringify(packMeta, null, 2), (err) => {
+    if (err) throw err;
+    console.log('pack.mcmeta file updated successfully');
+  });
 });
 
 // Zip Finished product
