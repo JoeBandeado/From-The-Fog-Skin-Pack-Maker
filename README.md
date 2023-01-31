@@ -6,7 +6,7 @@
 
 2. Run "setup.bat".
 
-3. Go to "input/skins" and change the skins to whatever you want. (You **CANNOT** make custom models with this skin pack generator. If you want to change the models of your skins you will need to download [**THIS**](https://lunareclipse.studio/dl/From-The-Fog-Custom-Skin-Template.zip) and follow the instructions.
+3. Go to "input/skins" and change the skins to whatever you want. (You **CANNOT** make custom models with this skin pack generator. If you want to change the models of your skins you will need to download [**THIS**](https://lunareclipse.studio/dl/From-The-Fog-Custom-Skin-Template.zip) and follow the instructions.)
 
 4. Open "input/details.json" and choose a name for your skinpack and it's skins. This is where you also need to define which skins are wide/slim.
 
