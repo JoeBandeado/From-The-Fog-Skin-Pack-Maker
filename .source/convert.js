@@ -3,7 +3,7 @@ const fs = require("fs");
 const fse = require('fs-extra');
 const path = require("path");
 const AdmZip = require('adm-zip');
-const details = require("./input/details.json");
+const details = require("../input/details.json");
 const packName = details["watchingSkin.customSkinPack.name"];
 const customSkinTypes = [
   details["watchingSkin.customSkin1.type"],

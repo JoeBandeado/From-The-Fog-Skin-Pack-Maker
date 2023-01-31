@@ -4,8 +4,8 @@
   "description": "From The Fog skin pack creator!",
   "main": "convert.js",
   "scripts": {
-    "convert": "npm i && node convert.js",
-    "reset": "npm i && node setup.js"
+    "convert": "npm i && node ./.source/convert.js",
+    "reset": "npm i && node ./.source/setup.js"
   },
   "author": "Bret06 & Creeperz653",
   "license": "ISC",

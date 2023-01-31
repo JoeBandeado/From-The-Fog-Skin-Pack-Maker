@@ -66,7 +66,7 @@ fs.readdir(root, (err, files) => {
   });
 });
 
-fs.writeFile('convert.bat', 'npm run convert', (err) => {
+fs.writeFile('createPack.bat', 'npm run convert', (err) => {
   if (err) throw err;
   console.log('convert.bat file created successfully');
 });
