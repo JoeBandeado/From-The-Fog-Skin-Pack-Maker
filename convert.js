@@ -111,5 +111,5 @@ customSkinTypes.forEach((customSkinType, index) => {
 setTimeout(() => {
 const zip = new AdmZip();
 zip.addLocalFolder('./output');
-zip.writeZip(`./${packName}-From-The-Fog-Skin-Creator.zip`);
+zip.writeZip(`./${packName}-Output.zip`);
 }, 1000);

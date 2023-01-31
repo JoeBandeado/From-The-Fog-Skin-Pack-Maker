@@ -43,3 +43,25 @@ try {
 } catch (err) {
   console.error(`Error copying and deleting directories: ${err.message}`);
 }
+
+
+const root = path.resolve('./');
+
+fs.readdir(root, (err, files) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  const zipFiles = files.filter(file => file.endsWith('.zip'));
+  zipFiles.forEach(zipFile => {
+    fs.unlink(path.join(root, zipFile), err => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      console.log(`Deleted ${zipFile}`);
+    });
+  });
+});
