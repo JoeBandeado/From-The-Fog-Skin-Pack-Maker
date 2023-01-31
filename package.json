@@ -5,7 +5,7 @@
   "main": "convert.js",
   "scripts": {
     "convert": "npm i && node convert.js",
-    "reset": "npm i && node reset.js"
+    "reset": "npm i && node setup.js"
   },
   "author": "Bret06 & Creeperz653",
   "license": "ISC",
