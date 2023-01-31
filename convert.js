@@ -86,7 +86,6 @@ const numbers = [1, 2, 3, 4, 5];
     emissiveImage.src = fs.readFileSync(`${skinSourcePath}${number}_emissive.png`);
     ctx.drawImage(emissiveImage, -8, -8, 64, 64);
 
-
     // Draw the second overlay layer on top of the first layer
     ctx.drawImage(image, 40, 8, 8, 8, 0, 0, 8, 8);
 
