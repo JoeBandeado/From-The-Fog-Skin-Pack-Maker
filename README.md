@@ -1,4 +1,4 @@
-# **How To Create A Custom Skin Pack For From The Fog Using The From The Fog Skin Creator**
+# **Skin Pack Generator guide**
 
 # A simple guide on how to make a custom skin pack for From The Fog!
 
